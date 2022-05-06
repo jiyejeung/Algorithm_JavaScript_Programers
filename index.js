@@ -94,3 +94,14 @@ const funcSolution10 = (strFirstArg, strSecondArg) => {
 	return numResult;
 };
 console.log(funcSolution10('COMPUTER PROGRAMMING', 'R')); // 3
+
+/* 문자열을 입력받아 해당 문자열에 대문자가 몇 개 있는지 출력하는 함수를 만들어라. */
+
+const funcSolution11 = (strArg) => {
+	const strUpperArg = strArg.toUpperCase().split('').filter(value => value != ' ');
+	let numResult = 0;
+	strArg.split('').filter(value => value != ' ').forEach((value, index) => value == strUpperArg[index] && numResult++);
+	return numResult;
+}
+
+console.log(funcSolution11('Korea Time Good')); // 3
