@@ -1,4 +1,5 @@
 /* 숫자들 중에서 최솟값을 출력하는 함수를 만들어라. */
+
 const funcSolution01 = (...arrNumArg) => {
 	return Math.min(...arrNumArg);
 };
@@ -6,6 +7,7 @@ const funcSolution01 = (...arrNumArg) => {
 console.log(funcSolution01(5, 2, 4, 3)); // 2
 
 /* 길이가 서로 다른 A, B, C 세 개의 막대 길이가 주어진다. 세 막대로 삼각형을 만들 수 있는지 판별하는 함수를 만들어라. */
+
 const funcSolution02 = (arrNumArg) => {
 	return arrNumArg.reduce((pre, cur) => pre + cur, 0) - arrNumArg.sort((a, b) => b - a)[0] > 0 ? true : false;
 };
@@ -45,3 +47,50 @@ const funcSolution06 = (arrNumArg) => {
 };
 
 console.log(funcSolution06([12, 44, 37, 63, 41, 53, 92, 85])); // [[37, 63, 41, 53, 85], 41]
+
+/* 인자가 9개인 숫자가 담긴 배열을 입력받아 7개의 인자가 합이 100인 인자들을 배열에 담아 출력하는 함수를 만들어라. */
+
+const funcSolution07 = (arrNumArg) => {
+	let i = 0;
+	let j = 1;
+	while (i < arrNumArg.length - 1) {
+		while (j < arrNumArg.length) {
+			if (arrNumArg[i] + arrNumArg[j] == 100) {
+				arrNumArg.splice(j, 1);
+				arrNumArg.splice(i, 1);
+				break;
+			}
+			j++;
+		}
+		j = 0;
+		i++;
+	}
+	return arrNumArg;
+};
+
+console.log(funcSolution07([20, 7, 23, 19, 10, 15, 25, 8, 13])); // [20, 7, 23, 19, 10, 8, 13]
+
+/* 문자열 두 자리 숫자를 담고 있는 배열과 숫자를 입력받아, 문자열 숫자의 일의 자리 숫자와 두 번째 인자로 받은 숫자가 일치하는지 확인하고, 몇개가 일치하는지 확인하는 함수를 만들어라. */
+
+const funcSolution08 = (arrStrArg, numArg) => {
+	return arrStrArg.filter((value) => parseInt(value[0]) % (numArg % 10) == 0).length;
+};
+
+console.log(funcSolution08(['11', '14', '24', '62', '73', '29', '00', '23'], 3)); // 2
+
+/* 대문자로 이루어진 알파벳이 입력되면 단어에 포함된 ‘A’를 모두 ‘#’으로 바꾸어 출력하는 함수를 만들어라. */
+
+const funcSolution09 = (strArg) => {
+	return strArg.replace(/A/g, '#');
+};
+
+console.log(funcSolution09('BANANA')); // B#N#N#
+
+/* 문자열 한개와 특정 문자열을 입력받아, 문자열안에 특정 문자열이 몇개 있는지 알아내는 함수를 만들어라. */
+
+const funcSolution10 = (strFirstArg, strSecondArg) => {
+	let numResult = 0;
+	strFirstArg.split('').forEach((value) => value == strSecondArg && numResult++);
+	return numResult;
+};
+console.log(funcSolution10('COMPUTER PROGRAMMING', 'R')); // 3
