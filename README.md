@@ -15,9 +15,10 @@
 - 문제 설명과 제한 조건이 기록된 이미지 파일을 같이 첨부하고, 코드 또한 README.md 파일에 기록한다.
 
 <br>
-<br>
 
 ## 1. 1단계 문제
+
+<br>
 
 ### 1-1. 별찍기
 
@@ -34,9 +35,11 @@ process.stdin.on('data', (data) => {
 
 	console.log(`${'*'.repeat(a)} \n`.repeat(b));
 });
-
-// while문과 for문 대신, String method의 repeat을 사용하였다.
 ```
+
+<br>
+
+### 1-2. x만큼 간격이 있는 n숫자
 
 <br>
 
@@ -46,6 +49,36 @@ process.stdin.on('data', (data) => {
 function solution(x, n) {
 	return new Array(n).fill(0).map((_, index) => x * (index + 1));
 }
+```
 
-// new Array()와 Array.prototype.fill()을 통하여 요소가 0리고, 길이가 n인 배열을 만들고, Array.prototype.map()을 사용하여 배열의 요소를 바꾸어주었다.
+<br>
+
+### 1-3. 행렬의 덧셈
+
+<br>
+
+<img src="./image/image03.png">
+
+```javascript
+function solution(arr1, arr2) {
+	return arr1.map((arr, index01) => arr.map((value, index02) => value + arr2[index01][index02]));
+}
+```
+
+<br>
+
+### 1-4. 핸드폰 번호 가리기
+
+<br>
+
+<img src="./image/image04.png">
+
+```javascript
+function solution(phoneNumber) {
+	return phoneNumber.split('').map((str, index) => (phoneNumber.length - index > 4 ? '*' : str)).join('');
+}
+
+function solution(phoneNumber) {
+	return '*'.repeat(phoneNumber.length - 4) + phoneNumber.slice(phoneNumber.length - 4, phoneNumber.length);
+}
 ```
