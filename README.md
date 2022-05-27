@@ -82,3 +82,26 @@ function solution(phoneNumber) {
 	return '*'.repeat(phoneNumber.length - 4) + phoneNumber.slice(phoneNumber.length - 4, phoneNumber.length);
 }
 ```
+### 1-5. 하샤드 수
+
+<br>
+
+<img src="./image/image05.png">
+
+```javascript
+function solution(x) {
+	return x % x.toString().split('').reduce((pre, cur) => pre + parseInt(cur), 0) === 0;
+}
+```
+
+### 1-6. 평균 구하기
+
+<br>
+
+<img src="./image/image06.png">
+
+```javascript
+function solution(arr) {
+	return arr.reduce((pre, cur) => pre + cur, 0) / arr.length;
+}
+```
