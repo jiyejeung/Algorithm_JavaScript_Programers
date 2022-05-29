@@ -75,13 +75,17 @@ function solution(arr1, arr2) {
 
 ```javascript
 function solution(phoneNumber) {
-	return phoneNumber.split('').map((str, index) => (phoneNumber.length - index > 4 ? '*' : str)).join('');
+	return phoneNumber
+		.split('')
+		.map((str, index) => (phoneNumber.length - index > 4 ? '*' : str))
+		.join('');
 }
 
 function solution(phoneNumber) {
 	return '*'.repeat(phoneNumber.length - 4) + phoneNumber.slice(phoneNumber.length - 4, phoneNumber.length);
 }
 ```
+
 ### 1-5. 하샤드 수
 
 <br>
@@ -90,7 +94,14 @@ function solution(phoneNumber) {
 
 ```javascript
 function solution(x) {
-	return x % x.toString().split('').reduce((pre, cur) => pre + parseInt(cur), 0) === 0;
+	return (
+		x %
+			x
+				.toString()
+				.split('')
+				.reduce((pre, cur) => pre + parseInt(cur), 0) ===
+		0
+	);
 }
 ```
 
@@ -103,5 +114,45 @@ function solution(x) {
 ```javascript
 function solution(arr) {
 	return arr.reduce((pre, cur) => pre + cur, 0) / arr.length;
+}
+```
+
+### 1-7. 콜라츠 추측
+
+<br>
+
+<img src="./image/image07.png">
+
+```javascript
+function solution(argNum) {
+	let numCount = 0;
+	while (argNum != 1) {
+		if (numCount >= 500) {
+			break;
+		}
+		(argNum % 2 == 1 && (argNum = argNum * 3 + 1)) || (argNum % 2 == 0 && (argNum = argNum / 2));
+		numCount++;
+	}
+	return argNum == 1 ? numCount : -1;
+}
+```
+
+### 1-8. 최대공약수와 최소 공배수
+
+<br>
+
+<img src="./image/image08.png">
+
+```javascript
+function solution(a, b) {
+	var greatestCommonDivisor = getGreatestCommonDivisor(a, b);
+	var lcm = (a * b) / greatestCommonDivisor;
+
+	return [greatestCommonDivisor, lcm];
+}
+
+function getGreatestCommonDivisor(a, b) {
+	if (b == 0) return a;
+	return a > b ? getGreatestCommonDivisor(b, a % b) : getGreatestCommonDivisor(a, b % a);
 }
 ```

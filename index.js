@@ -1,7 +1,13 @@
 // for testing and using 'node index.js'
 
-function solution(x, n) {
-	return new Array(n).fill(0).map((_, index) => x * (index + 1));
+function solution(a, b) {
+	var greatestCommonDivisor = getGreatestCommonDivisor(a, b);
+	var lcm = (a * b) / greatestCommonDivisor;
+
+	return [greatestCommonDivisor, lcm];
 }
 
-console.log(solution(2, 6));
+function getGreatestCommonDivisor(a, b) {
+	if (b == 0) return a;
+	return a > b ? getGreatestCommonDivisor(b, a % b) : getGreatestCommonDivisor(a, b % a);
+}
