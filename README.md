@@ -156,3 +156,27 @@ function getGreatestCommonDivisor(a, b) {
 	return a > b ? getGreatestCommonDivisor(b, a % b) : getGreatestCommonDivisor(a, b % a);
 }
 ```
+
+### 1-9. 짝수와 홀수
+
+<br>
+
+<img src="./image/image09.png">
+
+```javascript
+function solution(num) {
+	return num % 2 ? 'Odd' : 'Even';
+}
+```
+
+### 1-10. 제일 작은 수 제거하기
+
+<br>
+
+<img src="./image/image10.png">
+
+```javascript
+function solution(arr) {
+	return arr.length === 1 ? [-1] : arr.filter((num) => num != Math.min(...arr));
+}
+```
