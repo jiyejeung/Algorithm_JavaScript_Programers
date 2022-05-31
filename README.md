@@ -180,3 +180,27 @@ function solution(arr) {
 	return arr.length === 1 ? [-1] : arr.filter((num) => num != Math.min(...arr));
 }
 ```
+
+### 1-11. 정수 제곱근 판별
+
+<br>
+
+<img src="./image/image11.png">
+
+```javascript
+function solution(n) {
+	return Math.sqrt(n) == parseInt(Math.sqrt(n)) ? Math.pow(Math.sqrt(n) + 1, 2) : -1;
+}
+```
+
+### 1-12. 정수 내림차순으로 배치하기
+
+<br>
+
+<img src="./image/image12.png">
+
+```javascript
+function solution(numArg) {
+	return +String(numArg).split('').sort((a, b) => b - a).join('');
+}
+```
