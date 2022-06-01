@@ -28,7 +28,7 @@
 
 ```javascript
 process.stdin.setEncoding('utf8');
-process.stdin.on('data', (data) => {
+process.stdin.on('data', data => {
 	const n = data.split(' ');
 	const a = Number(n[0]);
 	const b = Number(n[1]);
@@ -75,10 +75,7 @@ function solution(arr1, arr2) {
 
 ```javascript
 function solution(phoneNumber) {
-	return phoneNumber
-		.split('')
-		.map((str, index) => (phoneNumber.length - index > 4 ? '*' : str))
-		.join('');
+	return phoneNumber.split('').map((str, index) => (phoneNumber.length - index > 4 ? '*' : str)).join('');
 }
 
 function solution(phoneNumber) {
@@ -94,14 +91,7 @@ function solution(phoneNumber) {
 
 ```javascript
 function solution(x) {
-	return (
-		x %
-			x
-				.toString()
-				.split('')
-				.reduce((pre, cur) => pre + parseInt(cur), 0) ===
-		0
-	);
+	return x % x.toString().split('').reduce((pre, cur) => pre + parseInt(cur), 0) === 0;
 }
 ```
 
@@ -177,7 +167,7 @@ function solution(num) {
 
 ```javascript
 function solution(arr) {
-	return arr.length === 1 ? [-1] : arr.filter((num) => num != Math.min(...arr));
+	return arr.length === 1 ? [-1] : arr.filter(num => num != Math.min(...arr));
 }
 ```
 
@@ -202,5 +192,29 @@ function solution(n) {
 ```javascript
 function solution(numArg) {
 	return +String(numArg).split('').sort((a, b) => b - a).join('');
+}
+```
+
+### 1-13. 자연수 뒤집어 배열로 만들기
+
+<br>
+
+<img src="./image/image13.png">
+
+```javascript
+function solution(n) {
+	return n.toString().split('').reverse().map(num => +num);
+}
+```
+
+### 1-14. 자릿수 더하기
+
+<br>
+
+<img src="./image/image14.png">
+
+```javascript
+function solution(n) {
+	return n.toString().split('').map(num => +num).reduce((pre, cur) => pre + cur, 0);
 }
 ```
