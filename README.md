@@ -218,3 +218,41 @@ function solution(n) {
 	return n.toString().split('').map(num => +num).reduce((pre, cur) => pre + cur, 0);
 }
 ```
+
+### 1-15. 이상한 문자 만들기
+
+<br>
+
+<img src="./image/image15.png">
+
+```javascript
+function solution(s) {
+	return s.split(' ').map(str => str.split('').map((spell, index) => index % 2 ? spell.toLowerCase() : spell.toUpperCase()).join('')).join(' ');
+}
+```
+
+### 1-16. 약수의 합
+
+<br>
+
+<img src="./image/image16.png">
+
+```javascript
+function solution(n) {
+	let result = 0;
+	for (let i = 1; i <= Math.sqrt(n); i++) {
+		for (let j = n; j >= Math.sqrt(n); j--) {
+			(i * j == n && i != j && (result += i + j)) || (i * j == n && i == j && (result += i));
+		}
+	}
+	return result;
+}
+
+function solution(n) {
+    let result = 0;
+    for (let i = 1; i <= n; i++) {
+        n % i === 0 && (result += i);
+    }
+    return result;
+}
+```
