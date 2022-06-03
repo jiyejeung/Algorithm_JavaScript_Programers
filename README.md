@@ -249,10 +249,38 @@ function solution(n) {
 }
 
 function solution(n) {
-    let result = 0;
-    for (let i = 1; i <= n; i++) {
-        n % i === 0 && (result += i);
-    }
-    return result;
+  let result = 0;
+  for (let i = 1; i <= n; i++) {
+	  n % i === 0 && (result += i);
+  }
+  return result;
+}
+```
+
+### 1-17. 문자열을 정수로 만들기
+
+<br>
+
+<img src="./image/image17.png">
+
+```javascript
+function solution(s) {
+	return +s
+}
+```
+
+### 1-18. 수박수박수박수박수박수?
+
+<br>
+
+<img src="./image/image18.png">
+
+```javascript
+function solution(n) {
+  let result = '';
+  for (let i = 0; i < n; i++) {
+      result += i % 2 ? '박' : '수';
+  }
+  return result;
 }
 ```
