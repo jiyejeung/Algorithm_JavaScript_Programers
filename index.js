@@ -1,13 +1,16 @@
 // for testing and using 'node index.js'
 
-function solution(a, b) {
-	var greatestCommonDivisor = getGreatestCommonDivisor(a, b);
-	var lcm = (a * b) / greatestCommonDivisor;
-
-	return [greatestCommonDivisor, lcm];
+function solution(s) {
+	return !/p|y/gi.test(s) ? true : s.match(/p/gi).length == s.match(/y/gi).length ? true : false;
 }
 
-function getGreatestCommonDivisor(a, b) {
-	if (b == 0) return a;
-	return a > b ? getGreatestCommonDivisor(b, a % b) : getGreatestCommonDivisor(a, b % a);
+// console.log(/p|P/g.exec('pPyY'));
+console.log('pPyY'.match(/p/gi).length);
+
+function solution(s) {
+	return !/p|y/gi.test(s) ? true : s.match(/p/gi).length == s.match(/y/gi).length ? true : false;
+}
+
+function solution(arr, divisor) {
+	return arr.filter(value => value % divisor == 0).length === 0 ? [-1] : arr.filter(value => value % divisor == 0).sort((a, b) => a - b);
 }

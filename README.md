@@ -227,7 +227,7 @@ function solution(n) {
 
 ```javascript
 function solution(s) {
-	return s.split(' ').map(str => str.split('').map((spell, index) => index % 2 ? spell.toLowerCase() : spell.toUpperCase()).join('')).join(' ');
+	return s.split(' ').map(str => str.split('').map((spell, index) => (index % 2 ? spell.toLowerCase() : spell.toUpperCase())).join('')).join(' ');
 }
 ```
 
@@ -249,11 +249,11 @@ function solution(n) {
 }
 
 function solution(n) {
-  let result = 0;
-  for (let i = 1; i <= n; i++) {
-	  n % i === 0 && (result += i);
-  }
-  return result;
+	let result = 0;
+	for (let i = 1; i <= n; i++) {
+		n % i === 0 && (result += i);
+	}
+	return result;
 }
 ```
 
@@ -265,7 +265,7 @@ function solution(n) {
 
 ```javascript
 function solution(s) {
-	return +s
+	return +s;
 }
 ```
 
@@ -277,10 +277,34 @@ function solution(s) {
 
 ```javascript
 function solution(n) {
-  let result = '';
-  for (let i = 0; i < n; i++) {
-      result += i % 2 ? '박' : '수';
-  }
-  return result;
+	let result = '';
+	for (let i = 0; i < n; i++) {
+		result += i % 2 ? '박' : '수';
+	}
+	return result;
+}
+```
+
+### 1-19. 서울에서 김서방 찾기
+
+<br>
+
+<img src="./image/image19.png">
+
+```javascript
+function solution(seoul) {
+	return `김서방은 ${seoul.findIndex(str => str == 'Kim')}에 있다`;
+}
+```
+
+### 1-20. 문자열 다루기 기본
+
+<br>
+
+<img src="./image/image20.png">
+
+```javascript
+function solution(s) {
+	return /^\d{4}$|^\d{6}$/.test(s);
 }
 ```
