@@ -75,7 +75,10 @@ function solution(arr1, arr2) {
 
 ```javascript
 function solution(phoneNumber) {
-	return phoneNumber.split('').map((str, index) => (phoneNumber.length - index > 4 ? '*' : str)).join('');
+	return phoneNumber
+		.split('')
+		.map((str, index) => (phoneNumber.length - index > 4 ? '*' : str))
+		.join('');
 }
 
 function solution(phoneNumber) {
@@ -91,7 +94,14 @@ function solution(phoneNumber) {
 
 ```javascript
 function solution(x) {
-	return x % x.toString().split('').reduce((pre, cur) => pre + parseInt(cur), 0) === 0;
+	return (
+		x %
+			x
+				.toString()
+				.split('')
+				.reduce((pre, cur) => pre + parseInt(cur), 0) ===
+		0
+	);
 }
 ```
 
@@ -191,7 +201,10 @@ function solution(n) {
 
 ```javascript
 function solution(numArg) {
-	return +String(numArg).split('').sort((a, b) => b - a).join('');
+	return +String(numArg)
+		.split('')
+		.sort((a, b) => b - a)
+		.join('');
 }
 ```
 
@@ -203,7 +216,11 @@ function solution(numArg) {
 
 ```javascript
 function solution(n) {
-	return n.toString().split('').reverse().map(num => +num);
+	return n
+		.toString()
+		.split('')
+		.reverse()
+		.map(num => +num);
 }
 ```
 
@@ -215,7 +232,11 @@ function solution(n) {
 
 ```javascript
 function solution(n) {
-	return n.toString().split('').map(num => +num).reduce((pre, cur) => pre + cur, 0);
+	return n
+		.toString()
+		.split('')
+		.map(num => +num)
+		.reduce((pre, cur) => pre + cur, 0);
 }
 ```
 
@@ -227,7 +248,15 @@ function solution(n) {
 
 ```javascript
 function solution(s) {
-	return s.split(' ').map(str => str.split('').map((spell, index) => (index % 2 ? spell.toLowerCase() : spell.toUpperCase())).join('')).join(' ');
+	return s
+		.split(' ')
+		.map(str =>
+			str
+				.split('')
+				.map((spell, index) => (index % 2 ? spell.toLowerCase() : spell.toUpperCase()))
+				.join('')
+		)
+		.join(' ');
 }
 ```
 
@@ -293,7 +322,7 @@ function solution(n) {
 
 ```javascript
 function solution(seoul) {
-	return `김서방은 ${seoul.findIndex(str => str == 'Kim')}에 있다`;
+	return `김서방은 ${seoul.findIndex(str => str === 'Kim')}에 있다`;
 }
 ```
 
@@ -306,5 +335,39 @@ function solution(seoul) {
 ```javascript
 function solution(s) {
 	return /^\d{4}$|^\d{6}$/.test(s);
+}
+```
+
+### 1-21. 문자열 내림차순으로 배치하기
+
+<br>
+
+<img src="./image/image21.png">
+
+```javascript
+function solution(s) {
+	const upper = s
+		.split('')
+		.filter(str => /[A-Z]/.test(str))
+		.sort((a, b) => b.charCodeAt() - a.charCodeAt())
+		.join('');
+	const lower = s
+		.split('')
+		.filter(str => /[a-z]/.test(str))
+		.sort((a, b) => b.charCodeAt() - a.charCodeAt())
+		.join('');
+	return lower + upper;
+}
+```
+
+### 1-22. 문자열 내 p와 y의 개수
+
+<br>
+
+<img src="./image/image22.png">
+
+```javascript
+function solution(s) {
+	return (s.match(/p/gi) || []).length == (s.match(/y/gi) || []).length;
 }
 ```
