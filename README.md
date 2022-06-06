@@ -371,3 +371,30 @@ function solution(s) {
 	return (s.match(/p/gi) || []).length == (s.match(/y/gi) || []).length;
 }
 ```
+
+### 1-23. 두 정수 사이의 합
+
+<br>
+
+<img src="./image/image23.png">
+
+```javascript
+function solution(a, b, i = -1) {
+	return Array(Math.abs(b - a) + 1)
+		.fill(a > b ? b : a)
+		.map((num, index) => num + index)
+		.reduce((pre, cur) => pre + cur, 0);
+}
+```
+
+### 1-24. 나누어 떨어지는 숫자 배열
+
+<br>
+
+<img src="./image/image24.png">
+
+```javascript
+function solution(arr, divisor) {
+	return arr.filter(num => num % divisor == 0).length ? arr.filter(num => num % divisor == 0).sort((a, b) => a - b) : [-1];
+}
+```
