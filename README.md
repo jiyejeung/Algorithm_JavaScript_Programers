@@ -398,3 +398,36 @@ function solution(arr, divisor) {
 	return arr.filter(num => num % divisor == 0).length ? arr.filter(num => num % divisor == 0).sort((a, b) => a - b) : [-1];
 }
 ```
+
+### 1-25. 예산
+
+<br>
+
+<img src="./image/image25.png">
+
+```javascript
+function solution(d, budget) {
+	return d
+		.sort((a, b) => a - b)
+		.filter(num => {
+			budget = budget - num;
+			return budget >= 0;
+		}).length;
+}
+
+function solution(d, budget) {
+	const result = 0;
+	const arr = d.sort((a, b) => a - b);
+	let i = 0;
+
+	while (i < arr.length) {
+		budget = budget - arr[i];
+		if (budget >= 0) {
+			result++;
+		} else {
+			return result;
+		}
+		i++;
+	}
+}
+```
