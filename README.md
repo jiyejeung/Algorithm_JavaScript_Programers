@@ -414,20 +414,4 @@ function solution(d, budget) {
 			return budget >= 0;
 		}).length;
 }
-
-function solution(d, budget) {
-	const result = 0;
-	const arr = d.sort((a, b) => a - b);
-	let i = 0;
-
-	while (i < arr.length) {
-		budget = budget - arr[i];
-		if (budget >= 0) {
-			result++;
-		} else {
-			return result;
-		}
-		i++;
-	}
-}
 ```
