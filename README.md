@@ -415,3 +415,21 @@ function solution(d, budget) {
 		}).length;
 }
 ```
+
+### 1-26. 부족한 금액 계산하기
+
+<br>
+
+<img src="./image/image26.png">
+
+```javascript
+function solution(price, money, count) {
+	let i = 1;
+	let num = 0;
+	while (i <= count) {
+		num += price * i;
+		i++;
+	}
+	return money - num > 0 ? 0 : Math.abs(money - num);
+}
+```
