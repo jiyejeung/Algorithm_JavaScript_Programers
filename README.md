@@ -433,3 +433,17 @@ function solution(price, money, count) {
 	return money - num > 0 ? 0 : Math.abs(money - num);
 }
 ```
+
+### 1-27. 나머지가 1이 되는 수 찾기
+
+<br>
+
+<img src="./image/image27.png">
+
+```javascript
+function solution(n) {
+	for (let x = 2; ; x++) {
+		if (n % x === 1) return x;
+	}
+}
+```
