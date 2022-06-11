@@ -447,3 +447,15 @@ function solution(n) {
 	}
 }
 ```
+
+### 1-28. K번째 수
+
+<br>
+
+<img src="./image/image28.png">
+
+```javascript
+function solution() {
+	return commands.map(arr => array.slice(arr[0] - 1, arr[1]).sort((a, b) => a - b)[arr[2] - 1]);
+}
+```
