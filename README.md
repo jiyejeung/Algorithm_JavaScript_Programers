@@ -459,3 +459,17 @@ function solution() {
 	return commands.map(arr => array.slice(arr[0] - 1, arr[1]).sort((a, b) => a - b)[arr[2] - 1]);
 }
 ```
+
+### 1-29. 2016년
+
+<br>
+
+<img src="./image/image29.png">
+
+```javascript
+function solution(a, b) {
+	const days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+	const date = new Date(`2016/${a}/${b}`);
+	return days[date.getDay()];
+}
+```
