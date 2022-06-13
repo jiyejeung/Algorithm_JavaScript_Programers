@@ -473,3 +473,15 @@ function solution(a, b) {
 	return days[date.getDay()];
 }
 ```
+
+### 1-30. 음양 더하기
+
+<br>
+
+<img src="./image/image30.png">
+
+```javascript
+function solution(absolutes, signs) {
+	return absolutes.map((num, index) => (signs[index] ? num : -num)).reduce((pre, cur) => pre + cur, 0);
+}
+```
