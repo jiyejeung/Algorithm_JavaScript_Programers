@@ -485,3 +485,15 @@ function solution(absolutes, signs) {
 	return absolutes.map((num, index) => (signs[index] ? num : -num)).reduce((pre, cur) => pre + cur, 0);
 }
 ```
+
+### 1-31. 없는 숫자 더하기
+
+<br>
+
+<img src="./image/image31.png">
+
+```javascript
+function solution(numbers) {
+	return 45 - numbers.filter(v => v >= 0 && v <= 9).reduce((pre, cur) => pre + cur, 0);
+}
+```
