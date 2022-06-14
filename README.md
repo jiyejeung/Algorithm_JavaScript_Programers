@@ -494,6 +494,6 @@ function solution(absolutes, signs) {
 
 ```javascript
 function solution(numbers) {
-	return 45 - numbers.filter(v => v >= 0 && v <= 9).reduce((pre, cur) => pre + cur, 0);
+	return 45 - numbers.reduce((pre, cur) => pre + cur, 0);
 }
 ```
