@@ -1,4 +1,4 @@
-## 자바스크립트 알고리즘(프로그래머스)
+# 자바스크립트 알고리즘(프로그래머스)
 
 <br>
 
@@ -524,5 +524,23 @@ function solution(participant, completion) {
 ```javascript
 function solution(s) {
 	return +s.replace(/zero/g, 0).replace(/one/g, 1).replace(/two/g, 2).replace(/three/g, 3).replace(/four/g, 4).replace(/five/g, 5).replace(/six/g, 6).replace(/seven/g, 7).replace(/eight/g, 8).replace(/nine/g, 9);
+}
+```
+
+### 1-34. [1차] 비밀지도
+
+<br>
+
+<img src="./image/image34.png">
+
+```javascript
+function solution(n, arr1, arr2) {
+	const result = new Array(n).fill(0).map(() => new Array(n).fill(' '));
+	const addZero = num => (num.length === n ? num : addZero('0' + num));
+
+	arr1 = arr1.map(num => (num.toString(2).length !== n ? addZero(num.toString(2)) : num.toString(2)));
+	arr2 = arr2.map(num => (num.toString(2).length !== n ? addZero(num.toString(2)) : num.toString(2)));
+
+	return result.map((arr, i) => arr.map((v, j) => (+arr1[i][j] + +arr2[i][j] ? '#' : v)).join(''));
 }
 ```
