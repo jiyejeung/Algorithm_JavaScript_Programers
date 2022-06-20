@@ -544,3 +544,15 @@ function solution(n, arr1, arr2) {
 	return result.map((arr, i) => arr.map((v, j) => (+arr1[i][j] + +arr2[i][j] ? '#' : v)).join(''));
 }
 ```
+
+### 1-35. 내적
+
+<br>
+
+<img src="./image/image35.png">
+
+```javascript
+function solution(a, b) {
+	return a.map((value, index) => value * b[index]).reduce((pre, cur) => pre + cur, 0);
+}
+```
