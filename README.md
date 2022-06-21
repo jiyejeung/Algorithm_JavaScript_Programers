@@ -556,3 +556,38 @@ function solution(a, b) {
 	return a.map((value, index) => value * b[index]).reduce((pre, cur) => pre + cur, 0);
 }
 ```
+
+### 1-36. 크레인 인형뽑기 게임
+
+<br>
+
+<img src="./image/image36-01.png">
+<img src="./image/image36-02.png">
+<img src="./image/image36-03.png">
+<img src="./image/image36-04.png">
+
+```javascript
+function solution(board, moves) {
+	let count = 0;
+	const result = [];
+
+	for (let i = 0; i < moves.length; i++) {
+		for (let j = 0; j < board[0].length; j++) {
+			if (board[j][moves[i] - 1] != 0) {
+				result.push(board[j][moves[i] - 1]);
+				board[j][moves[i] - 1] = 0;
+				break;
+			}
+		}
+	}
+
+	for (let k = 0; k < result.length - 1; k++) {
+		if (result[k] == result[k + 1]) {
+			result.splice(k, 2) && ((count += 2), (k = 0));
+			k -= 1;
+		}
+	}
+	
+	return count;
+}
+```
