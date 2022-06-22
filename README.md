@@ -587,7 +587,37 @@ function solution(board, moves) {
 			k -= 1;
 		}
 	}
-	
+
 	return count;
+}
+```
+
+<br>
+
+## 2. 2단계 문제
+
+<br>
+
+### 2-1. 최댓값과 최솟값
+
+<br>
+
+<img src="./image/image37.png">
+
+```javascript
+function solution(n) {
+	const arr = n.split(' ');
+	let maxNum = parseInt(arr[0]);
+	let minNum = parseInt(arr[0]);
+	for (let i = 0; i < arr.length; i++) {
+		parseInt(arr[i]) > maxNum && (maxNum = parseInt(arr[i]));
+		parseInt(arr[i]) < minNum && (minNum = parseInt(arr[i]));
+	}
+
+	return minNum + ' ' + maxNum;
+}
+
+function solution(n) {
+	return `${Math.min(...n.split(' ').map(v => +v))} ${Math.max(...n.split(' ').map(v => +v))}`;
 }
 ```
