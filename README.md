@@ -621,3 +621,27 @@ function solution(n) {
 	return `${Math.min(...n.split(' ').map(v => +v))} ${Math.max(...n.split(' ').map(v => +v))}`;
 }
 ```
+
+### 2-2. JadenCase 문자열 만들기
+
+<br>
+
+<img src="./image/image38.png">
+
+```javascript
+function solution(s) {
+	return s
+		.split(' ')
+		.map(value01 =>
+			value01.split('').map(value02 => {
+				value02 = value02.toLowerCase();
+				return value02;
+			})
+		)
+		.map(value03 => {
+			value03[0] = typeof value03[0] == 'string' ? value03[0].toUpperCase() : value03[0];
+			return value03.join('');
+		})
+		.join(' ');
+}
+```
