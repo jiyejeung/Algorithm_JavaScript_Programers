@@ -645,3 +645,15 @@ function solution(s) {
 		.join(' ');
 }
 ```
+
+### 2-3. 행렬의 곱셈
+
+<br>
+
+<img src="./image/image38.png">
+
+```javascript
+function solution(arr1, arr2) {
+	return arr1.map(row => arr2[0].map((v, i) => row.reduce((pre, cur, j) => pre + cur * arr2[j][i], 0)));
+}
+```
