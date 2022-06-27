@@ -657,3 +657,23 @@ function solution(arr1, arr2) {
 	return arr1.map(row => arr2[0].map((v, i) => row.reduce((pre, cur, j) => pre + cur * arr2[j][i], 0)));
 }
 ```
+
+### 2-4. 피보나치 수
+
+<br>
+
+<img src="./image/image40.png">
+
+```javascript
+function solution(n) {
+	const arrNum = [0, 1];
+	let numCount = 0;
+	while (n > 1) {
+		let numSum = (arrNum[arrNum.length - 2] + arrNum[arrNum.length - 1]) % 1234567;
+		arrNum.push(numSum);
+		numCount++;
+		n--;
+	}
+	return arrNum[arrNum.length - 1];
+}
+```
