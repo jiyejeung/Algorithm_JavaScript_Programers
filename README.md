@@ -677,3 +677,17 @@ function solution(n) {
 	return arrNum[arrNum.length - 1];
 }
 ```
+
+### 2-5. 최솟값 만들기
+
+<br>
+
+<img src="./image/image41.png">
+
+```javascript
+function solution(A, B) {
+	const arrNumA = A.sort((a, b) => a - b);
+	const arrNumB = B.sort((a, b) => b - a);
+	return arrNumA.reduce((pre, cur, index) => pre + cur * arrNumB[index], 0);
+}
+```
