@@ -691,3 +691,27 @@ function solution(A, B) {
 	return arrNumA.reduce((pre, cur, index) => pre + cur * arrNumB[index], 0);
 }
 ```
+
+### 2-6. 숫자의 표현
+
+<br>
+
+<img src="./image/image42.png">
+
+```javascript
+function solution(n) {
+	let result = 0;
+	for (let i = 0; i < n; i++) {
+		let num = 0;
+		for (let j = n - i; j > 0; j--) {
+			num += j;
+			if (num === n) {
+				result++;
+				break;
+			}
+			if (num > n) break;
+		}
+	}
+	return result;
+}
+```
