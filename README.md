@@ -715,3 +715,28 @@ function solution(n) {
 	return result;
 }
 ```
+
+### 2-7. 다음 큰 숫자
+
+<br>
+
+<img src="./image/image43.png">
+
+```javascript
+function solution(n) {
+	const numAnswer = n
+		.toString(2)
+		.split('')
+		.reduce((pre, cur) => pre + +cur, 0);
+	n++;
+	while (
+		n
+			.toString(2)
+			.split('')
+			.reduce((pre, cur) => pre + +cur, 0) != numAnswer
+	) {
+		n++;
+	}
+	return n;
+}
+```
