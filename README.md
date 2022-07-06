@@ -740,3 +740,23 @@ function solution(n) {
 	return n;
 }
 ```
+
+### 2-8. 올바른 괄호
+
+<br>
+
+<img src="./image/image44.png">
+
+```javascript
+function solution(s) {
+	let numResult = 0;
+	let i = 0;
+	while (i < s.length) {
+		s[i] == '(' && numResult++;
+		if (numResult == 0) return false;
+		s[i] == ')' && numResult--;
+		i++;
+	}
+	return numResult == 0 ? true : false;
+}
+```
