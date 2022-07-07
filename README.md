@@ -760,3 +760,28 @@ function solution(s) {
 	return numResult == 0 ? true : false;
 }
 ```
+
+### 2-9. 영어 끝말잇기
+
+<br>
+
+<img src="./image/image45.png">
+
+```javascript
+function solution(n, words) {
+	let index = 0;
+	let turn = 0;
+	const solution = new Set([words[0]]);
+
+	for (let i = 0; i < words.length - 1; i++) {
+		if (words[i][words[i].length - 1] === words[i + 1][0]) solution.add(words[i + 1]);
+		if (solution.size !== i + 2) {
+			index = (solution.size % n) + 1;
+			turn = Math.ceil((solution.size + 1) / n);
+			break;
+		}
+	}
+
+	return [index, turn];
+}
+```
