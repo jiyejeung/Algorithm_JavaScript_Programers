@@ -785,3 +785,20 @@ function solution(n, words) {
 	return [index, turn];
 }
 ```
+
+### 2-10. H-index
+
+<br>
+
+<img src="./image/image45.png">
+
+```javascript
+function solution(citations) {
+	let numSearchIndex = 0;
+	citations.sort((a, b) => b - a);
+	while (numSearchIndex + 1 <= citations[numSearchIndex]) {
+		numSearchIndex++;
+	}
+	return numSearchIndex;
+}
+```
