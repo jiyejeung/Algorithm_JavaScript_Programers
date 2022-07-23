@@ -790,15 +790,42 @@ function solution(n, words) {
 
 <br>
 
-<img src="./image/image45.png">
+<img src="./image/image46.png">
 
 ```javascript
 function solution(citations) {
-	let numSearchIndex = 0;
+	let result = 0;
 	citations.sort((a, b) => b - a);
-	while (numSearchIndex + 1 <= citations[numSearchIndex]) {
-		numSearchIndex++;
+	while (result + 1 <= citations[result]) {
+		result++;
 	}
-	return numSearchIndex;
+	return result;
+}
+```
+
+### 2-11. 기능개발
+
+<br>
+
+<img src="./image/image47.png">
+
+```javascript
+function solution(progresses, speeds) {
+	const result = [];
+	while (progresses.length > 0) {
+		let i = 0;
+		let numCount = 0;
+		progresses = progresses.map((_, index, array) => array[index] + speeds[index]);
+		while (i < progresses.length) {
+			if (progresses[i] < 100) break;
+			if (progresses[i] >= 100 && progresses.shift() && speeds.shift()) {
+				numCount++;
+				continue;
+			}
+			i++;
+		}
+		numCount > 0 && result.push(numCount);
+	}
+	return result;
 }
 ```
