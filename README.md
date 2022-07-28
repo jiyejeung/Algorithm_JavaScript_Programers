@@ -592,6 +592,35 @@ function solution(board, moves) {
 }
 ```
 
+### 1-37. 모의고사
+
+<br>
+
+<img src="./image/image48.png">
+
+```javascript
+function solution(answers) {
+	const arrNumPattern01 = [1, 2, 3, 4, 5];
+	const arrNumPattern02 = [2, 1, 2, 3, 2, 4, 2, 5];
+	const arrNumPattern03 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5];
+	const arrNumScore = [
+		{ 1: answers.filter((value, index) => value == arrNumPattern01[index % arrNumPattern01.length]).length },
+		{ 2: answers.filter((value, index) => value == arrNumPattern02[index % arrNumPattern02.length]).length },
+		{ 3: answers.filter((value, index) => value == arrNumPattern03[index % arrNumPattern03.length]).length },
+	];
+	const numMax = Math.max(arrNumScore[0][1], arrNumScore[1][2], arrNumScore[2][3]);
+	let i = 0;
+	const result = [];
+	while (i < arrNumScore.length) {
+		for (let key in arrNumScore[i]) {
+			arrNumScore[i][key] == numMax && result.push(parseInt(key));
+		}
+		i++;
+	}
+	return result;
+}
+```
+
 <br>
 
 ## 2. 2단계 문제
